@@ -35,7 +35,7 @@
 import tweepy
 from tfb_keys import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
-from tfb_calculus import minutesRemaining, minutesGone, totalMinutes, currentYear
+from tfb_calculus import minutesRemaining, minutesGone, totalMinutes #, currentYear
 from tfb_progressbar import tfbProgressbar
 # from tfb_data import tfbData
 from tfb_milestones import tfbMilestone
