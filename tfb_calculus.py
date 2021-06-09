@@ -17,13 +17,13 @@ currentDate: str
 currentYear: int
 currentDay: str
 
-currentDate = datetime.datetime.now()
-currentYear = currentDate.year
-currentDay = currentDate.strftime("%j")
+# currentDate = datetime.datetime.now()
+# currentYear = currentDate.year
+# currentDay = currentDate.strftime("%j")
 
 # Test dates
-# currentYear = 
-# currentDay = 
+currentYear = 2021
+currentDay = 182
 
 #---------------------------------------------------------------------------#
 
@@ -98,15 +98,15 @@ minutesGone: int
 """ Minutes elapsed untill current time. """
 
 # PE date correction
-peCurrentHour = currentDate.strftime("%H")  #PythonEverywhere environment has 1 hour less
-peCurrentMinute = currentDate.strftime("%M")   #PythonEverywhere environment has 60 minutes less
+# peCurrentHour = currentDate.strftime("%H")  #PythonEverywhere environment has 1 hour less
+# peCurrentMinute = currentDate.strftime("%M")   #PythonEverywhere environment has 60 minutes less
 
-currentHour = int(peCurrentHour) + 1    #Hour more correction to local hour
-currentMinute = int(peCurrentMinute) + 60   #Hour more correction to local hour
+# currentHour = int(peCurrentHour) + 1    #Hour more correction to local hour
+# currentMinute = int(peCurrentMinute) + 60   #Hour more correction to local hour
 
 # Test dates
-# currentHour = int(12)   #Hour more correction to local hour
-# currentMinute = int(00)   #Hour more correction to local hour
+currentHour = int(12)
+currentMinute = int(00)
 
 minutesGone = int(currentDay)*1440 + int(currentHour)*60 + int(currentMinute)
 

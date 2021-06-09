@@ -17,7 +17,7 @@ percent: float
 
 #---------------------------------------------------------------------------#
 
-# Obtain milestones.
+# Obtain milestones and the message intended to show
 
 def tfbMilestone (total, gone):
 
@@ -41,4 +41,22 @@ def tfbMilestone (total, gone):
     else:
         milestone = 0
 
-    return(milestone)
+    #---------------------------------------------------------------------------#
+
+    if milestone == 0:
+        pass
+
+    elif milestone == 1:
+        return("Today we have reached the 25% of the year.")
+
+    elif milestone == 2:
+        return("Today we have reached the 50% of the year.")
+
+    elif milestone == 3:
+        return("Today we have reached the 75% of the year.")
+
+    elif milestone == 4:
+        return("Today we have reached the 90% of the year. Tomorrow will be a new year!")
+
+    elif milestone == 5:
+        return("Happy New Year! Everything starts again.")
