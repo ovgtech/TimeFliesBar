@@ -9,7 +9,7 @@
 # Import.
 
 import tweepy
-from tfb_keys import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+from tfb_secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
 from tfb_calculus import gone_minutes as gm
 from tfb_calculus import total_minutes as tm
