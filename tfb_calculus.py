@@ -1,120 +1,115 @@
-
 """ Timefliesbar date calculus. """
 
 # Contact.
 
 # timefliesbar@protonmail.com
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 import datetime
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Obtain basic year information.
 
-currentDate: str
-currentYear: int
-currentDay: str
+current_date: str
+current_year: int
+current_day: str
 
-# currentDate = datetime.datetime.now()
-# currentYear = currentDate.year
-# currentDay = currentDate.strftime("%j")
+current_date = datetime.datetime.now()
+current_year = current_date.year
+current_day = current_date.strftime("%j")
 
-# Test dates
-currentYear = 2021
-currentDay = 182
-
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Obtain year type.
 
-stringCurrentYear: str
+string_current_year: str
 """ Int to string conversion needed. """
 
-stringCurrentYear = str(currentYear)
+string_current_year = str(current_year)
 
-secondLastDigitCurrentYear: str
-lastDigitCurrentYear: str
-leapYear: int
+second_last_digit_current_year: str
+last_digit_current_year: str
+leap_year: int
 
-secondLastDigitCurrentYear = stringCurrentYear[2:3]
-lastDigitCurrentYear = stringCurrentYear[3:4]
+second_last_digit_current_year = string_current_year[2:3]
+last_digit_current_year = string_current_year[3:4]
 
-if currentYear%4 == 0:
+if current_year % 4 == 0:
 
-	if secondLastDigitCurrentYear == 0 and lastDigitCurrentYear == 0:
+    if second_last_digit_current_year == 0 and last_digit_current_year == 0:
 
-		if currentYear%400 == 0:
+        if current_year % 400 == 0:
 
-			leapYear = 1
+            leap_year = 1
 
-		elif currentYear%400 != 0:
-			leapYear = 0
+        elif current_year % 400 != 0:
+            leap_year = 0
 
-	else:
-		pass
+    else:
+        pass
 
-elif currentYear%4 != 0:
-	leapYear = 0
+elif current_year % 4 != 0:
+    leap_year = 0
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Obtain total days.
 
-totalDays: int
+total_days: int
 """ Total days depending on year type. """
 
-if leapYear == 1:
-	totalDays = 366
+if leap_year == 1:
+    total_days = 366
 
-elif leapYear == 0:
-	totalDays = 365
+elif leap_year == 0:
+    total_days = 365
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Obtain total minutes.
 
-totalMinutes: int
+total_minutes: int
 """ Total minutes. Days + 60. """
 
-totalMinutes = totalDays * 1440
+total_minutes = total_days * 1440
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Obtain gone minutes.
 
-peCurrentHour: str
-""" PythonEverywhere current hour. """
-peCurrentMinute: str
-""" PythonEverywhere current minute. """
+# pe_current_hour: str
+# """ PythonEverywhere current hour. """
+# pe_current_minute: str
+# """ PythonEverywhere current minute. """
 
-currentHour: int
+current_hour: int
 """ Local current hour. """
-currentMinute: int
+current_minute: int
 """ Local current minute. """
 
-minutesGone: int
+gone_minutes: int
 """ Minutes elapsed untill current time. """
 
 # PE date correction
-# peCurrentHour = currentDate.strftime("%H")  #PythonEverywhere environment has 1 hour less
-# peCurrentMinute = currentDate.strftime("%M")   #PythonEverywhere environment has 60 minutes less
+# pe_current_hour = current_date.strftime("%H")  #PythonEverywhere environment has 1 hour less
+# pe_current_minute = current_date.strftime("%M")   #PythonEverywhere environment has 60 minutes less
 
-# currentHour = int(peCurrentHour) + 1    #Hour more correction to local hour
-# currentMinute = int(peCurrentMinute) + 60   #Hour more correction to local hour
+# current_hour = int(pe_current_hour) + 1    #Hour more correction to local hour
+# current_minute = int(pe_current_minute) + 60   #Hour more correction to local hour
 
-# Test dates
-currentHour = int(12)
-currentMinute = int(00)
+# Straight hour
+current_hour = current_date.strftime("%H")
+current_minute = current_date.strftime("%M")
 
-minutesGone = int(currentDay)*1440 + int(currentHour)*60 + int(currentMinute)
+gone_minutes = int(current_day) * 1440 + int(current_hour) * 60 + int(current_minute)
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Obtain remaining minutes.
 
-minutesRemaining: int
+remaining_minutes: int
 """ Minutes remaining this year. """
 
-minutesRemaining = int(totalMinutes) - int(minutesGone)
+remaining_minutes = int(total_minutes) - int(gone_minutes)

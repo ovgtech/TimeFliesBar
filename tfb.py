@@ -4,51 +4,30 @@
 
 # timefliesbar@protonmail.com
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
-# Import modules.
+# Import.
 
-# import tweepy
-# from tfb_keys import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+import tweepy
+from tfb_keys import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
-from tfb_calculus import minutesRemaining, minutesGone, totalMinutes #, currentYear
-from tfb_progressbar import tfbProgressbar as P
-# from tfb_data import tfbData
-from tfb_milestone import tfbMilestone as M
+from tfb_calculus import gone_minutes as gm
+from tfb_calculus import total_minutes as tm
 
+from tfb_progressbar import tfb_progressbar as P
+from tfb_milestone import tfb_milestone as M
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
 # Authentication.
 
-# auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-# auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-# api = tweepy.API(auth)
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth)
 
-#---------------------------------------------------------------------------#
+# ---------------------------------------------------------------------------#
 
-# Progressbar execution.
-
-# bar: str
-# """Progress bar representation."""
-# data: str
-# """Progress data printing."""
-
-# if minutesRemaining > 0:
-
-#     print('Tweeting')
-
-#     bar = P(totalMinutes, minutesGone)
-#     print('%s' % (bar))
-#     # api.update_status(status = '%s' % (bar))
-
-# else:
-
-#     pass
-
-#---------------------------------------------------------------------------#
-
-# Final content to show: 
+# Content to show:
 # If there is a regular day with no milestone, print the progressbar. If a milestone happens this day, print the corresponding message.
 
 milestone: str
@@ -56,18 +35,18 @@ milestone: str
 bar: str
 """Progress bar representation."""
 
-milestone = M(totalMinutes, minutesGone) # Milestone execution.
-bar = P(totalMinutes, minutesGone) # Progressbar execution.
+milestone = M(tm, gm)  # Milestone execution.
+bar = P(tm, gm)  # Progressbar execution.
 
-if not milestone: # If milestone is returned empty, it means that no milestone happens today and the function pass.
+if not milestone:  # If milestone is returned empty, it means that no milestone happens today and the function pass.
 
-    if minutesRemaining > 0:
-        print('%s' % (bar))
-        # api.update_status(status = '%s' % (bar))
+    if not bar:  # If bar is not returning anything, pass.
+        pass
 
     else:
-        pass
+        print(bar)
+        api.update_status(status = '%s' % (bar))
 
 else:
     print(milestone)
-    # api.update_status(status = '%s' % (milestone))
+    api.update_status(status = '%s' % (milestone))
