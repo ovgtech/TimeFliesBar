@@ -14,7 +14,7 @@
 <p>This project was devleoped with the intention to show how fast time goes, and trying to give the sensation of "lost" while showing a regresive bar instead a regular one. Everything to try to help us to relativize and understand the course of life a little bit better.</p>
 <p><i>This is quite an early version, and will support some interactions and/or better, more interesting facts or events.</i></p>
 
-# Index
+<h2>Index</h2>
 
 <h3>tfb.py</h3>
 <p>Main routine. Here This file is the one that calls the different functions when executed (according to a pre-established schedule) and converts the results intweets. (Eventually, this functions will collapse in one single module)</p>
