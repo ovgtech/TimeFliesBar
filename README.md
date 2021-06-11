@@ -9,7 +9,8 @@
 (Merely made with educational purposes).</p>
 
 <h2> How it works </h2>
-<p>It all focuses on a Twitter automatized account ([@timefliesbar](https://twitter.com/timefliesbar)) whose philosophy is "Time flies, make the most of it". Every day, at 12 o'clock in the morning, this profile shows us the percentage of the year that has elapsed in the shape of a reverse progress bar, unless that day is one of the symbolic moments in the course of the year (25%, 50%, 75%, 99%, 0%) when it shows a short message with no progress bar.</p>
+<p>It all focuses on a Twitter automatized account <a href="https://twitter.com/timefliesbar">@timefliesbar</a> whose philosophy is "Time flies, make the most of it".</p>
+<p>Every day, at 12 o'clock in the morning, this profile shows us the percentage of the year that has elapsed in the shape of a reverse progress bar, unless that day is one of the symbolic moments in the course of the year (25%, 50%, 75%, 99%, 0%) when it shows a short message with no progress bar.</p>
 <p>This project was devleoped with the intention to show how fast time goes, and trying to give the sensation of "lost" while showing a regresive bar instead a regular one. Everything to try to help us to relativize and understand the course of life a little bit better.</p>
 <p><i>This is quite an early version, and will support some interactions and/or better, more interesting facts or events.</i></p>
 
