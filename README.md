@@ -1,23 +1,32 @@
-# FLYING TIME TWITTER BOT
+<h1>FLYING TIME - Twitter Bot</h1>
 
-## Purpose
-* This is my first project featuring Python3 and Twitter APIs. Also is kind of a reflection.
-(Merely made with educational purposes).
+<p align="center">
+  <img src="/images/timefliesbg.jpg"/>
+</p>
 
-## How it works
-* It all focuses on a Twitter automatized account ([@timefliesbar](https://twitter.com/timefliesbar)) whose philosophy is "Time flies, make the most of it". Every day, at 12 o'clock in the morning, this profile shows us the percentage of the year that has elapsed in the shape of a reverse progress bar, unless that day is one of the symbolic moments in the course of the year (25%, 50%, 75%, 99%, 0%) when it shows a short message with no progress bar. 
-* This project was devleoped with the intention to show how fast time goes, and trying to give the sensation of "lost" while showing a regresive bar instead a regular one. Everything to try to help us to relativize and understand the course of life a little bit better.
-* _This is quite an early version, and will support some interactions and/or better, more interesting facts or events._
+<h2>Purpose</h2>
+<p>This is my first project featuring Python3 and Twitter APIs. Also is kind of a reflection.
+(Merely made with educational purposes).</p>
+
+<h2> How it works </h2>
+<p>It all focuses on a Twitter automatized account ([@timefliesbar](https://twitter.com/timefliesbar)) whose philosophy is "Time flies, make the most of it". Every day, at 12 o'clock in the morning, this profile shows us the percentage of the year that has elapsed in the shape of a reverse progress bar, unless that day is one of the symbolic moments in the course of the year (25%, 50%, 75%, 99%, 0%) when it shows a short message with no progress bar.</p>
+<p>This project was devleoped with the intention to show how fast time goes, and trying to give the sensation of "lost" while showing a regresive bar instead a regular one. Everything to try to help us to relativize and understand the course of life a little bit better.</p>
+<p><i>This is quite an early version, and will support some interactions and/or better, more interesting facts or events.</i></p>
 
 # Index
 
-* TFB.py:
-  * Main routine. Here This file is the one that calls the different functions when executed (according to a pre-established schedule) and converts the results in                             tweets. (Eventually, this functions will collapse in one single module).
-* TFB_CALCULUS.py:
-  * This function calcultes necessary numbers related to dates, days, hours, minutes, etc. As well as conversions needed.
-* TFB_PROGRESSBAR.py:
-  * This function generates the graphic representation of the progressbar.
-* TFB_MILESTONE.py:
-  * This function gives information about representative numeric moments in the year progress.
-* TFB_FUNFACTS.py:
-  * This last function expresses some interesting numbers, like minutes left in a year. (Currently not used)
+<h3>tfb.py</h3>
+<p>Main routine. Here This file is the one that calls the different functions when executed (according to a pre-established schedule) and converts the results intweets. (Eventually, this functions will collapse in one single module)</p>
+<h3>tfb_numbers.py</h3>
+<p>This function calcultes necessary numbers related to dates, days, hours, minutes, etc. As well as conversions needed.</p>
+<h3>tfb_progressbar.py</h3>
+<p>This function generates the graphic representation of the progressbar.</p>
+<h3>tfb_milestone.py</h3>
+<p>This function gives information about representative numeric moments in the year progress.</p>
+<h3>tfb_funfacts.py</h3>
+<p>This last function expresses some interesting numbers, like minutes left in a year. (Currently not used)</p>
+ 
+<br/>
+<p align="center">
+  <img src="/images/timeflieslogo.jpg"/>
+</p>
