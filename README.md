@@ -22,7 +22,7 @@
 <p>This function calcultes necessary numbers related to dates, days, hours, minutes, etc. As well as conversions needed.</p>
 <h3>tfb_progressbar.py</h3>
 <p>This function generates the graphic representation of the progressbar.</p>
-<h3>tfb_milestone.py</h3>
+<h3>tfb_milestones.py</h3>
 <p>This function gives information about representative numeric moments in the year progress.</p>
 <h3>tfb_funfacts.py</h3>
 <p>This last function expresses some interesting numbers, like minutes left in a year. (Currently not used)</p>

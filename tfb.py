@@ -11,11 +11,11 @@
 import tweepy
 from tfb_secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
-from tfb_calculus import gone_minutes as gm
-from tfb_calculus import total_minutes as tm
+from tfb_numbers import gone_minutes as gm
+from tfb_numbers import total_minutes as tm
 
 from tfb_progressbar import tfb_progressbar as P
-from tfb_milestone import tfb_milestone as M
+from tfb_milestones import tfb_milestone as M
 
 # ---------------------------------------------------------------------------#
 
