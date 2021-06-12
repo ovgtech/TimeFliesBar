@@ -13,7 +13,7 @@ tm: int
 gm: int
 """gone_minutes from tfb_calculus."""
 
-percent: float
+current_percent: float
 """ Elapsed percent of the year. """
 
 twentyfive: str
@@ -38,23 +38,23 @@ ninetynine = "Today we have reached the 99% of the year. Tomorrow will be a new 
 cero = "Happy New Year! Everything starts again."
 
 
-def tfb_milestone(tm, gm):
+def milestone(tm, gm):
 
-    percent = round((100 * (gm / int(tm))), 3)
+    current_percent = round((100 * (gm / int(tm))), 3)
 
-    if percent >= 25.000 and percent <= 25.275:
+    if current_percent >= 25.000 and current_percent <= 25.274:
         return twentyfive
 
-    elif percent >= 50.000 and percent <= 50.275:
+    elif current_percent >= 50.000 and current_percent <= 50.274:
         return fifty
 
-    elif percent >= 75.000 and percent <= 75.275:
+    elif current_percent >= 75.000 and current_percent <= 75.274:
         return seventyfive
 
-    elif percent >= 99.730 and percent <= 100.00:
+    elif current_percent >= 99.726 and current_percent <= 100.00:
         return ninetynine
 
-    elif percent >= 00.000 and percent <= 00.275:
+    elif current_percent >= 00.000 and current_percent <= 00.274:
         return cero
 
     else:

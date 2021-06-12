@@ -39,7 +39,7 @@ progressbar: str
 # Obtain gone progressbar.
 
 
-def tfb_progressbar(tm, gm, percent_decimals = 2, length=12, fill = "░", not_fill = "▓"):
+def progress_bar(tm, gm, percent_decimals = 2, length=12, fill = "░", not_fill = "▓"):
 
     percent_right = ("{0:." + str(percent_decimals) + "f}").format(100 - (100 * (gm / int(tm))))
     percent_left = ("{0:." + str(percent_decimals) + "f}").format(100 * (gm / int(tm)))

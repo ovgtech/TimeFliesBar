@@ -22,7 +22,7 @@ fun_facts: str
 
 # Obtain fun_facts.
 
-def tfb_funfacts(rm, cy, decimals_in_minutes = 0):
+def funfacts(rm, cy, decimals_in_minutes = 0):
 
     fun_facts = "There are still %s min remaining in %s." % (
         ("{0:." + str(decimals_in_minutes) + "0f}").format(rm), cy
