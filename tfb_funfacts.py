@@ -1,22 +1,24 @@
-"""Timefliesbar fun_facts function."""
+""" TIMEFLIESBAR FUN FACTS FUNCTION. """
 
 # Contact.
 
-# timefliesbar@protonmail.com
+# ovgpcomms@outlook.com
 
 # ---------------------------------------------------------------------------#
 
-# Declaring variables.
+# Pass-trough variables.
 
 tm: int
-"""total_minutes from tfb_calculus."""
+""" total_minutes from tfb_calculus. """
 cy: int
-"""current_year from tfb_calculus."""
+""" current_year from tfb_calculus. """
+
+# Regular variables.
 
 decimals_in_minutes: int
-"""Decimals to show on remaining minutes."""
+""" Decimals to show on remaining minutes. """
 fun_facts: str
-"""Progress fun_facts printing."""
+""" Progress fun_facts printing. """
 
 # ---------------------------------------------------------------------------#
 
