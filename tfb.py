@@ -6,15 +6,24 @@
 
 # ---------------------------------------------------------------------------#
 
-# Import functions.
+# Imports.
+
+import tweepy
+from tfb_secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
 from tfb_progressbar import progress_bar as P
 from tfb_milestones import milestone as M
 
-# Import variables.
-
 from tfb_numbers import gone_minutes as gm
 from tfb_numbers import total_minutes as tm
+
+# ---------------------------------------------------------------------------#
+
+# Authentication.
+
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth)
 
 # ---------------------------------------------------------------------------#
 
@@ -43,8 +52,8 @@ if not milestone:
         pass
 
     else:
-        print(progress_bar)
+        api.update_status(status = '%s' % (progress_bar))
 
 else:
-    print(milestone)
-    print(progress_bar)
+    api.update_status(status = '%s' % (milestone))
+    api.update_status(status = '%s' % (progress_bar))

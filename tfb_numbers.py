@@ -27,19 +27,9 @@ current_day = current_date.strftime("%j")
 current_hour = current_date.strftime("%H")
 current_minute = current_date.strftime("%M")
 
-# Test values
-# current_year = 2022
-# current_day = 0
-# current_hour = 12
-# current_minute = 00
-
 # ---------------------------------------------------------------------------#
 
 # Obtain year type and total days (There is a dedicated method from Calendar: isleap).
-
-# ---------------------------------------------------------------------------#
-
-# Obtain year type and total days.
 
 total_days: int
 
