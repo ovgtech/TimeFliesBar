@@ -40,7 +40,19 @@ progressbar: str
 
 # Obtain gone progressbar.
 
-def progress_bar(tm, gm, percent_decimals = 2, bar_length=12, bar_fill = "░", not_fill = "▓"):
+# def progress_bar(tm, gm, percent_decimals = 2, bar_length=12, bar_fill = "░", not_fill = "▓"):
+
+#     percent_right = ("{0:." + str(percent_decimals) + "f}").format(100 - (100 * (gm / int(tm))))
+#     percent_left = ("{0:." + str(percent_decimals) + "f}").format(100 * (gm / int(tm)))
+#     filled_length = int(bar_length * gm // tm)
+#     not_filled_length = int(bar_length - filled_length)
+#     bar = bar_fill * filled_length + not_fill * not_filled_length
+
+#     progressbar = f"{percent_left}% Gone {bar} Left {percent_right}%"
+
+#     return progressbar
+
+def progress_bar(tm, gm, percent_decimals = 2, bar_length=60, bar_fill = "\u2009", not_fill = "\u258F"):   #not_fill = "\u2009"
 
     percent_right = ("{0:." + str(percent_decimals) + "f}").format(100 - (100 * (gm / int(tm))))
     percent_left = ("{0:." + str(percent_decimals) + "f}").format(100 * (gm / int(tm)))
@@ -48,6 +60,6 @@ def progress_bar(tm, gm, percent_decimals = 2, bar_length=12, bar_fill = "░", 
     not_filled_length = int(bar_length - filled_length)
     bar = bar_fill * filled_length + not_fill * not_filled_length
 
-    progressbar = f"{percent_left}% Gone {bar} Left {percent_right}%"
+    progressbar = f"{percent_left}%  𝙶𝚘𝚗𝚎 \u258F {bar} \u258F  𝙻𝚎𝚏𝚝 {percent_right}%"
 
     return progressbar
