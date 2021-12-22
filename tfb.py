@@ -12,10 +12,14 @@ import tweepy
 from tfb_secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
 from tfb_progressbar import progress_bar as P
+#from tfb_graphic import graphic_bar as G
 from tfb_milestones import milestone as M
 
 from tfb_numbers import gone_minutes as gm
 from tfb_numbers import total_minutes as tm
+#from tfb_numbers import current_day as cd
+#from tfb_numbers import previous_day as pd
+
 
 # ---------------------------------------------------------------------------#
 
@@ -31,11 +35,14 @@ api = tweepy.API(auth)
 
 gm: int
 tm: int
+#cd: str
+#pd: str
 
 # Regular variables.
 
 milestone: str
 progress_bar: str
+
 
 # ---------------------------------------------------------------------------#
 
@@ -45,6 +52,7 @@ progress_bar: str
 
 milestone = M(tm, gm)  # Milestone execution.
 progress_bar = P(tm, gm)  # Progressbar execution.
+graphic_bar = G(gm, tm, cd, pd)  # Graphic execution.
 
 if not milestone:
 
@@ -53,6 +61,7 @@ if not milestone:
 
     else:
         api.update_status(status = '%s' % (progress_bar))
+        #api.simple_upload(status = '%s' % (graphic_bar))
 
 else:
     api.update_status(status = '%s' % (milestone))
