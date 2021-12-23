@@ -8,17 +8,19 @@
 
 # Imports.
 
+from os import remove
+
 import tweepy
 from tfb_secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
-from tfb_progressbar import progress_bar as P
-#from tfb_graphic import graphic_bar as G
+from tfb_graphic import graphic_bar as G
 from tfb_milestones import milestone as M
 
 from tfb_numbers import gone_minutes as gm
 from tfb_numbers import total_minutes as tm
-#from tfb_numbers import current_day as cd
-#from tfb_numbers import previous_day as pd
+from tfb_numbers import current_day as cd
+from tfb_numbers import current_day_upscaled as cd_u
+from tfb_numbers import previous_day as pd
 
 
 # ---------------------------------------------------------------------------#
@@ -32,17 +34,25 @@ api = tweepy.API(auth)
 # ---------------------------------------------------------------------------#
 
 # Pass-trough variables.
-
+""" Gone minutes. """
 gm: int
+"""" Total minutes. """
 tm: int
-#cd: str
-#pd: str
+""" Current day. """
+cd: str
+""" Current day upscaled. """
+cd_u: str
+"""" Previous day. """
+pd: str
+""" Name for the current image to save and publish. """
+img_save: str
+""" Name for the previous and now useless image. """
+img_remove: str
 
 # Regular variables.
-
+""" Name for the previous and now useless image. """
 milestone: str
-progress_bar: str
-
+img_save: str
 
 # ---------------------------------------------------------------------------#
 
@@ -51,18 +61,30 @@ progress_bar: str
 # If a milestone happens this day, print the milestone and the progressbar.
 
 milestone = M(tm, gm)  # Milestone execution.
-progress_bar = P(tm, gm)  # Progressbar execution.
-graphic_bar = G(gm, tm, cd, pd)  # Graphic execution.
+img_save, img_remove = G(cd_u, gm, tm, cd, pd)  # Graphic execution.
 
 if not milestone:
 
-    if not progress_bar:
+    if not img_save:
         pass
 
     else:
-        api.update_status(status = '%s' % (progress_bar))
-        #api.simple_upload(status = '%s' % (graphic_bar))
+        #api.update_status(status = '%s' % (progress_bar))
+        api.update_with_media(img_save, status="")
 
+        # Try to remove the image of the previous day (if exists)
+        try:
+            remove(img_remove)
+        except FileNotFoundError:
+            pass
+        
 else:
     api.update_status(status = '%s' % (milestone))
-    api.update_status(status = '%s' % (progress_bar))
+    api.update_with_media(img_save, status="")
+
+    # Try to remove the image of the previous day (if exists)
+    try:
+        remove(img_remove)
+    except FileNotFoundError:
+        pass
+    

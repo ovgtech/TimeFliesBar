@@ -18,6 +18,7 @@ from calendar import isleap
 current_date: str
 current_year: int
 current_day: str
+current_day_upscaled: str
 previous_day: str
 current_hour: int
 current_minute: int
@@ -25,6 +26,7 @@ current_minute: int
 current_date = datetime.datetime.now()
 current_year = current_date.year
 current_day = current_date.strftime("%j")
+current_day_upscaled = int(current_day)*2
 previous_day = int(current_day) - 1
 current_hour = current_date.strftime("%H")
 current_minute = current_date.strftime("%M")
