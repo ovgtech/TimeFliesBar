@@ -70,7 +70,7 @@ if not milestone:
 
     else:
         #api.update_status(status = '%s' % (progress_bar))
-        api.update_with_media(img_save, status="")
+        api.update_with_media(img_save, status="(Testing)")
 
         # Try to remove the image of the previous day (if exists)
         try:
@@ -80,7 +80,7 @@ if not milestone:
         
 else:
     api.update_status(status = '%s' % (milestone))
-    api.update_with_media(img_save, status="")
+    api.update_with_media(img_save, status="(Testing)")
 
     # Try to remove the image of the previous day (if exists)
     try:
