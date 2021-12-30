@@ -56,7 +56,7 @@ def drawbar(cy, cd_u, cp_l, cd, pd):
 
     # Name resolution
     img_save = './__graphics__/day_' + str(cd) + '.png'  # progressbar_day of the current day (to publish)
-    img_remove = './__graphics__/day' + str(pd) + '.png' # img_save of the previous day (to remove)
+    img_remove = './__graphics__/day_' + str(pd) + '.png' # img_save of the previous day (to remove)
 
     # Save the image for the current day
     img.save(img_save)
