@@ -1,90 +1,73 @@
-"""TimeFliesBar"""
-
-# Contact.
-
-# ovgpcomms@outlook.com
+""" TimeFliesBar Main. """
 
 # ---------------------------------------------------------------------------#
+# Contact.
+# ovgpcomms@outlook.com
+# ---------------------------------------------------------------------------#
+
 
 # Imports.
-
 from os import remove
 
 import tweepy
 from tfb_secrets import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
-from tfb_graphic import graphic_bar as G
-from tfb_milestones import milestone as M
+from tfb_drawbar import drawbar as D
+from tfb_milestones_v2 import milestones as M
 
-from tfb_numbers import gone_minutes as gm
-from tfb_numbers import total_minutes as tm
-from tfb_numbers import current_day as cd
-from tfb_numbers import current_day_upscaled as cd_u
-from tfb_numbers import previous_day as pd
+from tfb_numbers_v2 import current_year as cy
+from tfb_numbers_v2 import half_year as hy
+from tfb_numbers_v2 import previous_day as pd
+from tfb_numbers_v2 import current_day as cd
+from tfb_numbers_v2 import current_day_upscaled as cd_u
+from tfb_numbers_v2 import total_days as td
+from tfb_numbers_v2 import current_percent_left as cp_l
+from tfb_numbers_v2 import current_percent as cp
 
-
-# ---------------------------------------------------------------------------#
 
 # Authentication.
-
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-# ---------------------------------------------------------------------------#
 
-# Pass-trough variables.
-""" Gone minutes. """
-gm: int
-"""" Total minutes. """
-tm: int
-""" Current day. """
-cd: str
-""" Current day upscaled. """
-cd_u: str
-"""" Previous day. """
-pd: str
-""" Name for the current image to save and publish. """
-img_save: str
-""" Name for the previous and now useless image. """
-img_remove: str
+# Variables.
+cd: str # Current day.
+hy: str # Half of current year.
+td: str # Total days in current year.
 
-# Regular variables.
-""" Name for the previous and now useless image. """
-milestone: str
-img_save: str
+cy: str # Current year.
+cd_u: str # Current day upscaled to fit 1:2 Day to Pixel ratio for the drawbar.
+cp_l: str # Current percent left of the current year.
+pd: str # Previous day.
 
-# ---------------------------------------------------------------------------#
+milestones: str # Milestone function value.
+img_save: str # Name for the current image to save and publish. 
+img_remove: str # Name for the previous and now useless image. 
+
 
 # Content to show:
-# If there is a regular day with no milestone, print the progressbar.
-# If a milestone happens this day, print the milestone and the progressbar.
+#   - If there is a regular day with no milestone, print the progressbar.
+#   - If a milestone happens this day, print the milestone and the progressbar.
 
-milestone = M(tm, gm)  # Milestone execution.
-img_save, img_remove = G(cd_u, gm, tm, cd, pd)  # Graphic execution.
+milestones = M(cd, hy, td) # Milestones v2.
+img_save, img_remove = D(cy, cd_u, cp_l, cd, pd)  # Drawing Progress Bar.
 
-if not milestone:
-
+if not milestones:
     if not img_save:
         pass
-
+    
     else:
-        #api.update_status(status = '%s' % (progress_bar))
-        api.update_with_media(img_save, status="(Testing)")
-
-        # Try to remove the image of the previous day (if exists)
+        api.update_with_media(img_save, status="")
         try:
-            remove(img_remove)
+            remove(img_remove) # Try to remove the image of the previous day (if exists)
         except FileNotFoundError:
             pass
-        
-else:
-    api.update_status(status = '%s' % (milestone))
-    api.update_with_media(img_save, status="(Testing)")
 
-    # Try to remove the image of the previous day (if exists)
+else:
+    api.update_with_media(img_save, status="")
+    api.update_status(status = '%s' % (milestones)) 
     try:
-        remove(img_remove)
+        remove(img_remove) # Try to remove the image of the previous day (if exists)
     except FileNotFoundError:
         pass
-    
