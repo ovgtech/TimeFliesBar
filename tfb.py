@@ -22,7 +22,6 @@ from tfb_numbers_v2 import current_day as cd
 from tfb_numbers_v2 import current_day_upscaled as cd_u
 from tfb_numbers_v2 import total_days as td
 from tfb_numbers_v2 import current_percent_left as cp_l
-from tfb_numbers_v2 import current_percent as cp
 
 
 # Authentication.
