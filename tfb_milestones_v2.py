@@ -5,8 +5,13 @@
 # ovgpcomms@outlook.com
 # ---------------------------------------------------------------------------#
 
+# Imports.
+from tfb_numbers_v2 import half_year as hy
+from tfb_numbers_v2 import total_days as td
 
 # Variables.
+hy: int # Day which is half of the year.
+td: int # Total days in a year.
 mid: str # Half year message.
 last: str # Last day of the year message.
 first: str # First day of the year message.
@@ -19,7 +24,7 @@ first = "Happy New Year! Everything starts again."
 
 
 # Function
-def milestones(cd, hy, td):
+def milestones(cd):
 
     if cd == 1:
         return first
