@@ -54,8 +54,7 @@ if not message:
         pass
     elif img_save:
         api.update_with_media(img_save, status="")
-        # For control:
-        print(img_save)
+        print(img_save) # For control.
         try:
             remove(img_remove) # Try to remove the image of the previous day (if exists)
         except FileNotFoundError:
@@ -71,9 +70,8 @@ elif message:
     elif img_save:
         api.update_with_media(img_save, status="")
         api.update_status(status = '%s' % (message))
-        #For control:
-        print(message)
-        print(img_save)
+        print(message) # For control.
+        print(img_save) # For control.
         try:
             remove(img_remove) # Try to remove the image of the previous day (if exists)
         except FileNotFoundError:
