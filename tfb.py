@@ -36,7 +36,7 @@ cd_u: str # Current day upscaled to fit 1:2 Day to Pixel ratio for the drawbar.
 cp_l: str # Current percent left of the current year.
 pd: str # Previous day.
 
-milestones: str # Milestone function value.
+message: str # Milestone function value.
 img_save: str # Name for the current image to save and publish. 
 img_remove: str # Name for the previous and now useless image. 
 
@@ -45,28 +45,42 @@ img_remove: str # Name for the previous and now useless image.
 #   - If there is a regular day with no milestone, print the progressbar.
 #   - If a milestone happens this day, print the milestone and the progressbar.
 
-milestones = M(cd) # Milestones v2.
+message = M(cd) # Milestones v2.
 img_save, img_remove = D(cy, cd_u, cp_l, cd, pd)  # Drawing Progress Bar.
 
-if milestones == "None":
+if not message:
     if not img_save:
+        print("Error(1).")
         pass
-    else:
+    elif img_save:
         api.update_with_media(img_save, status="")
+        # For control:
         print(img_save)
         try:
             remove(img_remove) # Try to remove the image of the previous day (if exists)
-            print("Removed ", img_remove)
         except FileNotFoundError:
             pass
-
-else:
-    api.update_with_media(img_save, status="")
-    api.update_status(status = '%s' % (milestones)) 
-    print(milestones)
-    print(img_save)
-    try:
-        remove(img_remove) # Try to remove the image of the previous day (if exists)
-        print("Removed ", img_remove)
-    except FileNotFoundError:
+    else:
+        print("Error(2).")
         pass
+
+elif message:
+    if not img_save:
+        print("Error(3).")
+        pass
+    elif img_save:
+        api.update_with_media(img_save, status="")
+        api.update_status(status = '%s' % (message))
+        #For control:
+        print(message)
+        print(img_save)
+        try:
+            remove(img_remove) # Try to remove the image of the previous day (if exists)
+        except FileNotFoundError:
+            pass
+    else:
+        print("Error(4).")
+    
+else:
+    print("Error(5).")
+    pass
