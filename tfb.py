@@ -53,15 +53,20 @@ if milestones == "None":
         pass
     else:
         api.update_with_media(img_save, status="")
+        print(img_save)
         try:
             remove(img_remove) # Try to remove the image of the previous day (if exists)
+            print("Removed ", img_remove)
         except FileNotFoundError:
             pass
 
 else:
     api.update_with_media(img_save, status="")
     api.update_status(status = '%s' % (milestones)) 
+    print(milestones)
+    print(img_save)
     try:
         remove(img_remove) # Try to remove the image of the previous day (if exists)
+        print("Removed ", img_remove)
     except FileNotFoundError:
         pass
