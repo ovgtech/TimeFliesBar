@@ -1,4 +1,5 @@
-<h1>FLYING TIME - Twitter Bot</h1>
+<h1>OUTDATED, update to v2.0 soon</h1>
+<h1>FLYING TIME BAR - Twitter Bot</h1>
 
 <p align="center">
   <img src="/images/timefliesbg.jpg"/>
